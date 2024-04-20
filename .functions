@@ -1,0 +1,58 @@
+dir() {
+  mkdir -p $1
+  cd $1
+}
+
+edit() {
+  code ${1:-.} # Default to .
+}
+
+tree() {
+  command tree -I 'node_modules' -I 'target' "$@"
+}
+
+# ================================
+# Source: trozler/whereAmI
+# https://github.com/trozler/whereAmI/blob/master/findmepls.sh
+#
+# Forked to use `jq` instead of `grep` & `awk`
+# ================================
+whereami() { 
+  RESP=$(curl -s "ipinfo.io")
+	CITY=$(echo "$RESP" | jq -r '.city')
+	COUNTRY=$(echo "$RESP" | jq -r '.country')
+	IP=$(echo "$RESP" | jq -r '.ip')
+	REGION=$(echo "$RESP" | jq -r '.region')
+	printf "%s - %s, %s, %s.\n" "$IP" "$CITY" "$REGION" "$COUNTRY"
+} || echo "lost - somewhere off the shoulder of Orion.";
+
+# ================================
+# Source: mathiasbynens/dotfiles
+# https://github.com/mathiasbynens/dotfiles/blob/main/.functions
+# ================================
+
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+  tree -aC -I '.git|target|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+function aliases () {
+	alias | grep "$1"
+}
