@@ -1,0 +1,32 @@
+[user]
+	email = ben@nuro.dev
+	name = nurodev
+[github]
+  	user = nurodev
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	cut = checkout -b
+	ls = ls-files
+	st = status
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[core]
+	autocrlf = input
+	editor = nano
+	excludesfile = ~/.gitignore
+[init]
+  defaultBranch = main
+[url "ssh://git@github.com/"]
+	insteadOf = github:
+[url "ssh://git@github.com/"]
+	insteadOf = gh:
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[diff "lockb"]
+	textconv = bun
+	binary = true
