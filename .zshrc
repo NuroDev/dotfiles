@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-# Initialize starship prompt
-eval "$(starship init zsh)"
-
 # Set the ZSH shell theme
 ZSH_THEME="spaceship"
 
@@ -20,22 +17,30 @@ export EDITOR="code"
 plugins=(
 	ansible
 	brew
+	bun
 	copyfile
 	copypath
+	deno
 	docker
 	docker-compose
 	dotenv
+	# encode64
+	# extract
 	fnm
+	gcloud
 	git
 	gitignore
 	history
 	history-substring-search
+	# httpie
 	iterm2
 	kubectl
 	last-working-dir
 	macos
+	node
 	npm
 	rust
+	starship
 	vscode
 	zsh-autosuggestions
 	zsh-completions
