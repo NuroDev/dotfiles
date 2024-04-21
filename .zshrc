@@ -18,6 +18,7 @@ export EDITOR="code"
 
 # Enable plugins
 plugins=(
+	ansible
 	brew
 	copyfile
 	copypath
