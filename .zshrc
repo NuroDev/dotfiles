@@ -23,6 +23,7 @@ plugins=(
 	copypath
 	docker
 	docker-compose
+	dotenv
 	fnm
 	git
 	gitignore
