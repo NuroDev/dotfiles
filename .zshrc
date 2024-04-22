@@ -23,7 +23,7 @@ plugins=(
 	deno
 	docker
 	docker-compose
-	dotenv
+	# dotenv
 	# encode64
 	# extract
 	fnm
