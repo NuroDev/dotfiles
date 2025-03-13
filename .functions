@@ -56,3 +56,54 @@ function tre() {
 function aliases () {
 	alias | grep "$1"
 }
+
+latency() {
+	# Check if URL is provided
+	if [[ -z "$1" ]]; then
+		echo "Error: URL is required"
+		echo "Usage: latency <url> [number_of_requests]"
+		return 1
+	fi
+  
+	local url="$1"
+	local times=${2:-10}
+
+	# Add http:// prefix if the URL doesn't start with http:// or https://
+	if [[ ! "$url" =~ ^https?:// ]]; then
+		url="https://$url"
+	fi
+
+	# Collect all measurements
+	local results=()
+	for i in $(seq 1 $times); do
+		local result=$(curl -o /dev/null -s -w '%{time_total}' "$url" | awk '{printf "%.0f", $1 * 1000}')
+		results+=($result)
+		echo "Request $i: $result ms"
+	done
+
+	# Calculate statistics
+	local sum=0
+	local min=${results[0]}
+	local max=${results[0]}
+
+	# Make sure min is initialized properly
+	if [[ -z "$min" ]]; then
+		min=${results[1]}
+	fi
+
+	for val in "${results[@]}"; do
+	# Skip empty values
+	if [[ -n "$val" ]]; then
+		sum=$((sum + val))
+		if (( val < min )) || [[ -z "$min" ]]; then min=$val; fi
+		if (( val > max )); then max=$val; fi
+	fi
+	done
+
+	local avg=$((sum / times))
+
+	echo "------------------------"
+	echo "Min: $min ms"
+	echo "Max: $max ms"
+	echo "Avg: $avg ms"
+}
