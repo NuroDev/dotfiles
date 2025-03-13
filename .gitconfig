@@ -1,15 +1,8 @@
 [user]
+	name = Ben Dixon
 	email = ben@nuro.dev
-	name = nurodev
 [github]
-  	user = nurodev
-[alias]
-	br = branch
-	ci = commit
-	co = checkout
-	cut = checkout -b
-	ls = ls-files
-	st = status
+	user = nurodev
 [color]
 	branch = auto
 	diff = auto
@@ -20,7 +13,7 @@
 	editor = nano
 	excludesfile = ~/.gitignore
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [url "ssh://git@github.com/"]
 	insteadOf = github:
 [url "ssh://git@github.com/"]
