@@ -1,21 +1,30 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+# Initialize starship prompt
+eval "$(starship init zsh)"
+
 # Set the ZSH shell theme
 ZSH_THEME="spaceship"
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
 
 # Set the timestamp format for the history file
 HIST_STAMPS="dd/mm/yyyy"
 
-# Completions
-autoload -Uz compinit && compinit
+# Use modern completion system
+autoload -Uz compinit
+compinit
 
 # Set my default text editor
 export EDITOR="code"
 
 # Enable plugins
 plugins=(
-	ansible
+	# ansible
 	brew
 	bun
 	copyfile
@@ -23,23 +32,18 @@ plugins=(
 	deno
 	docker
 	docker-compose
-	# dotenv
-	# encode64
-	# extract
+	extract
 	fnm
 	gcloud
 	git
 	gitignore
-	history
-	history-substring-search
-	# httpie
 	iterm2
 	kubectl
 	last-working-dir
 	macos
-	node
 	npm
 	rust
+	terraform
 	starship
 	vscode
 	zsh-autosuggestions
@@ -69,7 +73,7 @@ if [ -f ~/.aliases ] then
 fi
 
 # If a custom fet.sh file exists, run it on shell startup
-if [ -f ~/.fet.sh ] then
+if [ -f ~/.fet ] then
   ~/.fet
 fi
 
@@ -84,11 +88,15 @@ export PATH="$PNPM_HOME:$PATH"
 # Bun
 export BUN_INSTALL="/Users/$USER/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -d "$BUN_INSTALL" ]; then
+	source "$BUN_INSTALL/_bun"
+fi
 
 # @antfu/ni
 export NI_CONFIG_FILE="$HOME/.nirc"
 
 # Golang
-export GOPATH=$HOME/go/
-export GOROOT=/opt/homebrew/Cellar/go/1.21.6/libexec
+export GOPATH=~/go/
+export GOVERSION=$(find /opt/homebrew/Cellar/go/ -maxdepth 1 -mindepth 1 -type d | sort | head -n 1 | xargs basename)
+export GOROOT=/opt/homebrew/Cellar/go/$GOVERSION/libexec
 export PATH="$GOPATH/bin:$PATH"
