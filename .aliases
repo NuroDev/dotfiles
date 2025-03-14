@@ -1,10 +1,14 @@
+# ---------------------------------------------
 # Ansible
+# ---------------------------------------------
 alias ans="ansible"
 alias ansg="ansible-galaxy"
 alias ansp="ansible-playbook"
 alias ansv="ansible-vault"
 
+# ---------------------------------------------
 # Brew / Homebrew
+# ---------------------------------------------
 alias b=brew
 alias bi="b install"
 alias bic="b install --cask"
@@ -14,7 +18,9 @@ alias bud="b update"
 alias bug="b upgrade"
 alias bui="b uninstall"
 
+# ---------------------------------------------
 # Containers / Docker
+# ---------------------------------------------
 if which docker > /dev/null 2>&1; then
 	alias dcp="docker compose pull"
 	alias dk="docker"
@@ -36,7 +42,9 @@ if which docker > /dev/null 2>&1; then
 	alias ubuntu="dk run --rm --name ubuntu -it ubuntu /bin/bash"
 fi
 
+# ---------------------------------------------
 # Shortcuts
+# ---------------------------------------------
 # alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
