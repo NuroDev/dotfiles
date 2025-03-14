@@ -49,12 +49,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Include functions file (if present) containing helper functions
 if [ -f ~/.functions ]; then
-  source ~/.functions
+	source ~/.functions
 fi
 
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.aliases ]; then
-  source ~/.aliases
+	source ~/.aliases
 fi
 
 # If a custom fet.sh file exists, run it on shell startup
@@ -69,5 +69,5 @@ fi
 
 # If a `~/dev.zshrc` file exists, run it on shell startup
 if [ -f ~/dev.zshrc ]; then
-  source ~/dev.zshrc
+	source ~/dev.zshrc
 fi
