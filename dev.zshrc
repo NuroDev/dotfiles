@@ -1,4 +1,4 @@
-plugins=(
+plugins+=(
 	bun
 	deno
 	fnm
