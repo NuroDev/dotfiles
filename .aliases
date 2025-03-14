@@ -14,17 +14,6 @@ alias bud="b update"
 alias bug="b upgrade"
 alias bui="b uninstall"
 
-# Cargo
-alias c="cargo"
-alias ca="cargo add"
-alias cargo-sort="cargo-sort-ck ./Cargo.toml -w"
-alias cb="cargo build"
-alias cbr="cargo build --release"
-alias cr="cargo run"
-alias crr="cargo run --release"
-alias cs="cargo-sort"
-alias ct="cargo test"
-
 # Containers / Docker
 if which docker > /dev/null 2>&1; then
 	alias dcp="docker compose pull"
@@ -42,35 +31,13 @@ if which docker > /dev/null 2>&1; then
 	alias dksa="dks $(dk ps -aq)"
 	alias dkst="dk stats"
 	alias dps="dk ps -a"
+
+	alias alpine="dk run --rm --name alpine -it alpine /bin/sh"
+	alias ubuntu="dk run --rm --name ubuntu -it ubuntu /bin/bash"
 fi
 
-
-# Deno
-alias dn="deno"
-alias dnf="deno fmt"
-alias dnl="deno lint"
-alias dnr="deno task"
-alias dnt="deno test"
-
-# Node / npm 
-alias js="node"
-alias n=node
-alias nrb='nr build'
-alias nrd='nr dev'
-alias nrf='nr format'
-alias nrl='nr lint'
-alias nrs='nr start'
-alias nrt='nr test'
-alias p="pnpm"
-alias ts="tsx"
-
-# Xmake
-alias x="xmake"
-alias xr="xrepo"
-
 # Shortcuts
-alias alpine="dk run --rm --name alpine -it alpine /bin/sh"
-alias clock="tock -c -s -C 15"
+# alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
 # alias df="duf"
@@ -87,11 +54,8 @@ alias localip="ipconfig getifaddr en0"
 alias ls="lsd -l"
 alias minify="tr -d "\n\r""
 alias mkv-to-mp4="for f in *.mkv; do ffmpeg -i "$f" -c copy "${f%.mkv}.mp4"; done"
-alias ping="gping"
 alias pod64='arch -x86_64 pod'
 alias prune-ds-store="/usr/bin/find . -name ".DS_Store" -depth -exec rm {} \;"
-alias ps="procs"
 alias reload="source ~/.zshrc"
 # alias send="ffsend"
 alias speed-test="networkQuality -sv"
-alias ubuntu="dk run --rm --name ubuntu -it ubuntu /bin/bash"

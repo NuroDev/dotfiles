@@ -73,7 +73,10 @@ if [ -f ~/.fet ]; then
 	~/.fet
 fi
 
-# If a `~/dev.zshrc` file exists, run it on shell startup
+# Only include the dev files if they exist
+if [ -f ~/dev.zshrc ]; then
+	source ~/dev.aliases
+fi
 if [ -f ~/dev.zshrc ]; then
 	source ~/dev.zshrc
 fi
