@@ -28,8 +28,6 @@ plugins=(
 	brew
 	copyfile
 	copypath
-	docker
-	docker-compose
 	extract
 	git
 	gitignore
@@ -42,6 +40,14 @@ plugins=(
 	zsh-completions
 	zsh-syntax-highlighting
 )
+
+# If the `docker` command exists, enable the Docker CLI completion
+if which docker > /dev/null 2>&1; then
+    plugins+=(
+		docker
+		docker-compose
+	)
+fi
 
 # Initialize oh-my-zsh
 export ZSH=~/.oh-my-zsh
