@@ -68,12 +68,12 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Include functions file (if present) containing helper functions
-if [ -f ~/.functions ] then
+if [ -f ~/.functions ]; then
   source ~/.functions
 fi
 
 # Include alias file (if present) containing aliases for ssh, etc.
-if [ -f ~/.aliases ] then
+if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
