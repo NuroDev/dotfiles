@@ -15,10 +15,6 @@ HISTFILE=~/.zsh_history
 # Set the timestamp format for the history file
 HIST_STAMPS="dd/mm/yyyy"
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
-
 # Set my default text editor
 export EDITOR="code"
 
@@ -36,10 +32,17 @@ plugins=(
 	macos
 	starship
 	vscode
-	zsh-autosuggestions
-	zsh-completions
-	zsh-syntax-highlighting
 )
+
+# Initialize custom zsh plugins
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
 
 # If the `docker` command exists, enable the Docker CLI completion
 if which docker > /dev/null 2>&1; then
