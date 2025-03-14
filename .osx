@@ -116,7 +116,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
 chflags nohidden ~/Library
 
 ###############################################################################
-# Dock, Dashboard, and hot corners                                            #
+# Desktop, Dock, Dashboard, and hot corners                                   #
 ###############################################################################
 
 # Disable Dashboard
@@ -133,6 +133,12 @@ defaults write com.apple.dock expose-animation-duration -float 0.15
 
 # Make Dock icons of hidden applications translucent
 # defaults write com.apple.dock showhidden -bool true
+
+# Don’t show suggested & recent applications in Dock
+defaults write com.apple.dock show-recents -bool FALSE
+
+# Disable clicking on the desktop / wallpaper to reveal it
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
 
 # Enable the 'reduce transparency' option. Save GPU cycles.
 defaults write com.apple.universalaccess reduceTransparency -bool true
@@ -156,6 +162,8 @@ defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-bl-modifier -int 0
+
+killall Dock
 
 ###############################################################################
 # Safari & WebKit                                                             #
