@@ -26,21 +26,24 @@ alias cs="cargo-sort"
 alias ct="cargo test"
 
 # Containers / Docker
-alias dcp="docker-compose pull"
-alias dk="docker"
-alias dkimg="dk image"
-alias dkimgs="dk images"
-alias dkl="dk logs"
-alias dklf="dkl -f"
-alias dkps="dk ps"
-alias dkpsa="dk ps -a"
-alias dkr="dk run"
-alias dkrm="dk rm"
-alias dkrma="dkrm $(dk ps -aq)"
-alias dks="dk stop"
-alias dksa="dks $(dk ps -aq)"
-alias dkst="dk stats"
-alias dps="dk ps -a"
+if which docker > /dev/null 2>&1; then
+	alias dcp="docker compose pull"
+	alias dk="docker"
+	alias dkimg="dk image"
+	alias dkimgs="dk images"
+	alias dkl="dk logs"
+	alias dklf="dkl -f"
+	alias dkps="dk ps"
+	alias dkpsa="dk ps -a"
+	alias dkr="dk run"
+	alias dkrm="dk rm"
+	alias dkrma="dkrm $(dk ps -aq)"
+	alias dks="dk stop"
+	alias dksa="dks $(dk ps -aq)"
+	alias dkst="dk stats"
+	alias dps="dk ps -a"
+fi
+
 
 # Deno
 alias dn="deno"
@@ -66,7 +69,7 @@ alias x="xmake"
 alias xr="xrepo"
 
 # Shortcuts
-alias alpine="docker run --rm --name alpine -it alpine /bin/sh"
+alias alpine="dk run --rm --name alpine -it alpine /bin/sh"
 alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
