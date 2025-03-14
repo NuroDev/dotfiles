@@ -1,3 +1,6 @@
+# Add Python 3.9 & Homebrew to the PATH
+export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
