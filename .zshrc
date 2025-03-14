@@ -57,7 +57,9 @@ if [ -d "$HOME/.cargo/env" ]; then
 fi
 
 # FNM (Fast Node Manager)
-eval "$(fnm env)"
+if which fnm > /dev/null 2>&1; then
+    eval "$(fnm env)"
+fi
 
 # Oh my ZSH
 source $ZSH/oh-my-zsh.sh
