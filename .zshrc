@@ -24,7 +24,7 @@ export EDITOR="code"
 
 # Enable plugins
 plugins=(
-	# ansible
+	ansible
 	brew
 	bun
 	copyfile
