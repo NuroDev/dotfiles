@@ -78,7 +78,7 @@ if [ -f ~/.aliases ]; then
 fi
 
 # If a custom fet.sh file exists, run it on shell startup
-if [ -f ~/.fet ] then
+if [ -f ~/.fet ]; then
   ~/.fet
 fi
 
