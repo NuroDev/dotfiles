@@ -59,7 +59,12 @@ fi
 
 # If a custom fet.sh file exists, run it on shell startup
 if [ -f ~/.fet ]; then
-  ~/.fet
+	# If the file is not executable, make it so
+	if [ ! -x ~/.fet ]; then
+		chmod +x ~/.fet
+	fi
+
+	~/.fet
 fi
 
 # If a `~/dev.zshrc` file exists, run it on shell startup
