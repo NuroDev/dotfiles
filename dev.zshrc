@@ -1,3 +1,14 @@
+plugins=(
+	bun
+	deno
+	fnm
+	gcloud
+	kubectl
+	npm
+	rust
+	terraform
+)
+
 # Cargo
 if [ -d "$HOME/.cargo/env" ]; then
 	source $HOME/.cargo/env

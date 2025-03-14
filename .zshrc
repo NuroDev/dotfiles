@@ -26,24 +26,16 @@ export EDITOR="code"
 plugins=(
 	ansible
 	brew
-	bun
 	copyfile
 	copypath
-	deno
 	docker
 	docker-compose
 	extract
-	fnm
-	gcloud
 	git
 	gitignore
 	iterm2
-	kubectl
 	last-working-dir
 	macos
-	npm
-	rust
-	terraform
 	starship
 	vscode
 	zsh-autosuggestions
