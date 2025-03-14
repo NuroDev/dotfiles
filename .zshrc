@@ -2,7 +2,7 @@
 export ZSH=~/.oh-my-zsh
 
 # Initialize starship prompt
-eval "$(starship init zsh)"
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
 
 # Set the ZSH shell theme
 ZSH_THEME="spaceship"
