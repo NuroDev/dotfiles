@@ -7,7 +7,7 @@ alias ansp="ansible-playbook"
 alias ansv="ansible-vault"
 
 # ---------------------------------------------
-# Brew / Homebrew
+# Homebrew
 # ---------------------------------------------
 alias b=brew
 alias bi="b install"
@@ -55,9 +55,7 @@ alias exot="exit"
 # alias find="fzf"
 alias flush-dns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias home="~"
-alias jqi="jnv"
-alias json-parse="jq"
-alias json="fx"
+alias json="jq"
 alias localip="ipconfig getifaddr en0"
 alias ls="lsd -l"
 alias minify="tr -d "\n\r""

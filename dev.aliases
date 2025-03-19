@@ -1,4 +1,6 @@
+# ---------------------------------------------
 # Cargo
+# ---------------------------------------------
 alias c="cargo"
 alias ca="cargo add"
 alias cargo-sort="cargo-sort-ck ./Cargo.toml -w"
@@ -9,14 +11,18 @@ alias crr="cargo run --release"
 alias cs="cargo-sort"
 alias ct="cargo test"
 
+# ---------------------------------------------
 # Deno
+# ---------------------------------------------
 alias dn="deno"
 alias dnf="deno fmt"
 alias dnl="deno lint"
 alias dnr="deno task"
 alias dnt="deno test"
 
-# Node / npm 
+# ---------------------------------------------
+# Node.js
+# ---------------------------------------------
 alias js="node"
 alias n=node
 alias nrb='nr build'
@@ -28,6 +34,8 @@ alias nrt='nr test'
 alias p="pnpm"
 alias ts="tsx"
 
+# ---------------------------------------------
 # Xmake
+# ---------------------------------------------
 alias x="xmake"
 alias xr="xrepo"
