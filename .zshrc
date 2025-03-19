@@ -5,7 +5,7 @@ export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
 eval "$(starship init zsh)"
 
 # Set the ZSH shell theme
-echo $(brew --prefix)/opt/spaceship/spaceship.zsh
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
 ZSH_THEME="spaceship"
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
