@@ -33,6 +33,9 @@ osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/S
 # Enable dark mode
 osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
 
+# Disable notifications from the Tips app
+defaults write com.apple.tips PromptToLearn -boolean false
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
