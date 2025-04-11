@@ -48,7 +48,7 @@ fi
 # alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
-alias dotenv="export $(cat .env | grep -v '^#' | xargs)"
+alias dotenv="export $(cat .env 2>/dev/null | grep -v '^#' | xargs)"
 # alias df="duf"
 # alias dig="dog"
 # alias du="dust"
