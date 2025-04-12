@@ -43,6 +43,12 @@ defaults write com.apple.menuextra.battery ShowTime -string "YES"
 # Check for software updates weekly
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 7
 
+# Disable Apple Intelligence
+defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "false"
+
+# Disable the “Application Downloaded from Internet” quarantine warning.
+defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
@@ -114,6 +120,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
 
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Show path bar in the bottom of the Finder windows
+defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
 
 # Enable snap-to-grid for icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
