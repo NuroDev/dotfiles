@@ -35,6 +35,7 @@ osascript -e 'tell application "System Events" to tell appearance preferences to
 
 # Disable notifications from the Tips app
 defaults write com.apple.tips PromptToLearn -boolean false
+defaults write com.apple.tips TipsDisabled -bool true
 
 # Show remaining battery time in the menu bar (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
