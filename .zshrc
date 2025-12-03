@@ -21,25 +21,16 @@ plugins=(
 	ansible
 	brew
 	bun
-	copyfile
-	copypath
 	deno
 	docker
 	docker-compose
-	extract
-	fnm
 	fnm
 	git
-	gitignore
 	iterm2
 	kubectl
-	last-working-dir
 	macos
-	npm
-	rust
 	starship
 	terraform
-	vscode
 )
 
 # @antfu/ni
