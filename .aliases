@@ -33,9 +33,7 @@ if which docker > /dev/null 2>&1; then
 	alias dkpsa="dk ps -a"
 	alias dkr="dk run"
 	alias dkrm="dk rm"
-	alias dkrma="dkrm $(dk ps -aq)"
 	alias dks="dk stop"
-	alias dksa="dks $(dk ps -aq)"
 	alias dkst="dk stats"
 	alias dps="dk ps -a"
 
