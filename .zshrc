@@ -36,13 +36,6 @@ plugins=(
 # @antfu/ni
 export NI_CONFIG_FILE="$HOME/.nirc"
 
-# Bun
-export BUN_INSTALL="/Users/$USER/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-if [ -d "$BUN_INSTALL" ]; then
-	source "$BUN_INSTALL/_bun"
-fi
-
 # Cargo
 if [ -d "$HOME/.cargo/env" ]; then
 	source $HOME/.cargo/env
