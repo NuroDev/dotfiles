@@ -23,18 +23,55 @@ export EDITOR="code"
 plugins=(
 	ansible
 	brew
+	bun
 	copyfile
 	copypath
+	deno
+	docker
+	docker-compose
 	extract
+	fnm
 	fnm
 	git
 	gitignore
 	iterm2
+	kubectl
 	last-working-dir
 	macos
+	npm
+	rust
 	starship
+	terraform
 	vscode
 )
+
+# Cargo
+if [ -d "$HOME/.cargo/env" ]; then
+	source $HOME/.cargo/env
+fi
+
+# FNM (Fast Node Manager)
+if which fnm > /dev/null 2>&1; then
+    eval "$(fnm env)"
+fi
+
+# Bun
+export BUN_INSTALL="/Users/$USER/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -d "$BUN_INSTALL" ]; then
+	source "$BUN_INSTALL/_bun"
+fi
+
+# @antfu/ni
+export NI_CONFIG_FILE="$HOME/.nirc"
+
+# Golang
+if [ -d "$(brew --prefix)/Cellar/go" ]; then
+	export GOPATH=~/go/
+	export GOVERSION=$(find $(brew --prefix)/Cellar/go/ -maxdepth 1 -mindepth 1 -type d | sort | head -n 1 | xargs basename)
+	export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
+	export PATH="$GOPATH/bin:$PATH"
+fi
 
 # Initialize custom zsh plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -45,14 +82,6 @@ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 # Use modern completion system
 autoload -Uz compinit
 compinit
-
-# If the `docker` command exists, enable the Docker CLI completion
-if which docker > /dev/null 2>&1; then
-        plugins+=(
-                docker
-                docker-compose
-        )
-fi
 
 # Initialize oh-my-zsh
 export ZSH=~/.oh-my-zsh
@@ -76,12 +105,4 @@ if [ -f ~/.fet ]; then
 	fi
 
 	~/.fet
-fi
-
-# Only include the dev files if they exist
-if [ -f ~/dev.zshrc ]; then
-	source ~/dev.aliases
-fi
-if [ -f ~/dev.zshrc ]; then
-	source ~/dev.zshrc
 fi
