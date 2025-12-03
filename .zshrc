@@ -63,9 +63,14 @@ source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-# Use modern completion system
+# (Lazy) Load modern completion system 
 autoload -Uz compinit
-compinit
+if [[ -z "$ZSH_COMPDUMP" ]]; then
+  ZSH_COMPDUMP="${fpath[1]}/.zcompdump"
+fi
+{
+  compinit -C -d "$ZSH_COMPDUMP"
+} &!
 
 # Initialize oh-my-zsh
 export ZSH=~/.oh-my-zsh
