@@ -31,11 +31,3 @@ alias nrf='nr format'
 alias nrl='nr lint'
 alias nrs='nr start'
 alias nrt='nr test'
-alias p="pnpm"
-alias ts="tsx"
-
-# ---------------------------------------------
-# Xmake
-# ---------------------------------------------
-alias x="xmake"
-alias xr="xrepo"

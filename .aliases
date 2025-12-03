@@ -17,6 +17,7 @@ alias bls="b ls"
 alias bud="b update"
 alias bug="b upgrade"
 alias bui="b uninstall"
+alias buic="b uninstall --cask"
 
 # ---------------------------------------------
 # Containers / Docker
@@ -49,11 +50,7 @@ fi
 alias cls="clear"
 alias config="edit ~/.zshrc"
 alias dotenv='export $(cat .env 2>/dev/null | grep -v "^#" | xargs)'
-# alias df="duf"
-# alias dig="dog"
-# alias du="dust"
 alias exot="exit"
-# alias find="fzf"
 alias flush-dns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias home="~"
 alias json="jq"
@@ -65,5 +62,4 @@ alias pod64='arch -x86_64 pod'
 alias prune-ds-store="/usr/bin/find . -name ".DS_Store" -depth -exec rm {} \;"
 alias prune-node-modules='find . -name "node_modules" -type d -prune -exec rm -rf {} \;'
 alias reload="source ~/.zshrc"
-# alias send="ffsend"
 alias speed-test="networkQuality -sv"

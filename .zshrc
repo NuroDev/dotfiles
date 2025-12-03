@@ -26,6 +26,7 @@ plugins=(
 	copyfile
 	copypath
 	extract
+	fnm
 	git
 	gitignore
 	iterm2
@@ -47,10 +48,10 @@ compinit
 
 # If the `docker` command exists, enable the Docker CLI completion
 if which docker > /dev/null 2>&1; then
-    plugins+=(
-		docker
-		docker-compose
-	)
+        plugins+=(
+                docker
+                docker-compose
+        )
 fi
 
 # Initialize oh-my-zsh
