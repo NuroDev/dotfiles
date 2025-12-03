@@ -1,6 +1,3 @@
-# Add Python 3.9 & Homebrew to the PATH
-export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
-
 # Initialize starship prompt
 eval "$(starship init zsh)"
 
@@ -45,6 +42,16 @@ plugins=(
 	vscode
 )
 
+# @antfu/ni
+export NI_CONFIG_FILE="$HOME/.nirc"
+
+# Bun
+export BUN_INSTALL="/Users/$USER/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -d "$BUN_INSTALL" ]; then
+	source "$BUN_INSTALL/_bun"
+fi
+
 # Cargo
 if [ -d "$HOME/.cargo/env" ]; then
 	source $HOME/.cargo/env
@@ -55,16 +62,6 @@ if which fnm > /dev/null 2>&1; then
     eval "$(fnm env)"
 fi
 
-# Bun
-export BUN_INSTALL="/Users/$USER/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-if [ -d "$BUN_INSTALL" ]; then
-	source "$BUN_INSTALL/_bun"
-fi
-
-# @antfu/ni
-export NI_CONFIG_FILE="$HOME/.nirc"
-
 # Golang
 if [ -d "$(brew --prefix)/Cellar/go" ]; then
 	export GOPATH=~/go/
@@ -72,6 +69,9 @@ if [ -d "$(brew --prefix)/Cellar/go" ]; then
 	export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
 	export PATH="$GOPATH/bin:$PATH"
 fi
+
+# Python 3.9
+export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
 
 # Initialize custom zsh plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
