@@ -14,7 +14,7 @@ HISTFILE=~/.zsh_history
 HIST_STAMPS="dd/mm/yyyy"
 
 # Set my default text editor
-export EDITOR="code"
+export EDITOR="code --wait"
 
 # Enable plugins
 plugins=(
