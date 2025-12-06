@@ -28,6 +28,7 @@ plugins=(
 	git
 	iterm2
 	kubectl
+	last-working-dir
 	macos
 	starship
 	terraform
