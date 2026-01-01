@@ -1,3 +1,6 @@
+# Python 3.9
+export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
+
 # Initialize starship prompt
 eval "$(starship init zsh)"
 
@@ -54,9 +57,6 @@ if [ -d "$(brew --prefix)/Cellar/go" ]; then
 	export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
 	export PATH="$GOPATH/bin:$PATH"
 fi
-
-# Python 3.9
-export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
 
 # Initialize custom zsh plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
