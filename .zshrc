@@ -47,7 +47,7 @@ fi
 
 # FNM (Fast Node Manager)
 if which fnm > /dev/null 2>&1; then
-    eval "$(fnm env)"
+	eval "$(fnm env)"
 fi
 
 # Golang
@@ -67,10 +67,10 @@ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 # (Lazy) Load modern completion system 
 autoload -Uz compinit
 if [[ -z "$ZSH_COMPDUMP" ]]; then
-  ZSH_COMPDUMP="${fpath[1]}/.zcompdump"
+	ZSH_COMPDUMP="${fpath[1]}/.zcompdump"
 fi
 {
-  compinit -C -d "$ZSH_COMPDUMP"
+	compinit -C -d "$ZSH_COMPDUMP"
 } &!
 
 # Initialize oh-my-zsh
