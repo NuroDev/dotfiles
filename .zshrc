@@ -1,5 +1,5 @@
 # Python 3.9
-export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
+export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
 
 # Initialize starship prompt
 eval "$(starship init zsh)"
