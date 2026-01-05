@@ -77,7 +77,7 @@ alias nrt='nr test'
 # Shortcuts
 # ---------------------------------------------
 alias ai="opencode"
-# alias clock="tock -c -s -C 15"
+alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
 alias dotenv='export $(cat .env 2>/dev/null | grep -v "^#" | xargs)'
