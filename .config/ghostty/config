@@ -1,0 +1,54 @@
+# ─────────────────────────────────────────
+# Application
+# ─────────────────────────────────────────
+auto-update = download
+auto-update-channel = tip
+
+# ─────────────────────────────────────────
+# Keybindings
+# ─────────────────────────────────────────
+keybind = shift+enter=text:\n
+
+# ─────────────────────────────────────────
+# Window
+# ─────────────────────────────────────────
+background-blur = 25
+background-opacity = 0.5
+unfocused-split-opacity = 1.0
+window-height = 25
+window-padding-x = 8
+window-padding-y = 8
+window-width = 90
+
+# ─────────────────────────────────────────
+# Font
+# ─────────────────────────────────────────
+bold-is-bright = true
+font-family = "JetBrains Mono"
+font-size = 11
+
+# ─────────────────────────────────────────
+# Cursor
+# ─────────────────────────────────────────
+cursor-color = #c7c7c7
+cursor-style = block
+cursor-style-blink = true
+
+# ─────────────────────────────────────────
+# Shell
+# ─────────────────────────────────────────
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# ─────────────────────────────────────────
+# Behavior
+# ─────────────────────────────────────────
+clipboard-paste-protection = true
+copy-on-select = false
+link-url = true
+macos-secure-input-indication = true
+
+# ─────────────────────────────────────────
+# Colors
+# ─────────────────────────────────────────
+theme = dark:orng-dark,light:orng-light
