@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Fallback when no lock found
-defaultAgent=pnpm
+defaultAgent=bun
