@@ -29,6 +29,7 @@ plugins=(
 	docker-compose
 	fnm
 	git
+	history-substring-search
 	iterm2
 	kubectl
 	last-working-dir
