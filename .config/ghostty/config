@@ -3,6 +3,7 @@
 # ─────────────────────────────────────────
 auto-update = download
 auto-update-channel = tip
+command = zsh
 
 # ─────────────────────────────────────────
 # Keybindings
