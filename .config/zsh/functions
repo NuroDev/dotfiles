@@ -11,12 +11,12 @@ tree() {
   command tree -I 'node_modules' -I 'target' "$@"
 }
 
-# ================================
+# ─────────────────────────────────────────
 # Source: trozler/whereAmI
 # https://github.com/trozler/whereAmI/blob/master/findmepls.sh
 #
 # Forked to use `jq` instead of `grep` & `awk`
-# ================================
+# ─────────────────────────────────────────
 whereami() { 
   RESP=$(curl -s "ipinfo.io")
 	CITY=$(echo "$RESP" | jq -r '.city')
@@ -26,10 +26,12 @@ whereami() {
 	printf "%s - %s, %s, %s.\n" "$IP" "$CITY" "$REGION" "$COUNTRY"
 } || echo "lost - somewhere off the shoulder of Orion.";
 
+# ─────────────────────────────────────────
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
+# ─────────────────────────────────────────
 function tre() {
   tree -aC -I '.git|target|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }

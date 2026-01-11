@@ -1,0 +1,44 @@
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
+
+# source $(brew --prefix)/opt/spaceship/spaceship.zsh
+ZSH_THEME="spaceship"
+
+plugins=(
+	ansible
+	bun
+	docker
+	docker-compose
+	fnm
+	git
+	history-substring-search
+	last-working-dir
+	macos
+	starship
+	terraform
+)
+
+if [ -d /usr/share/zsh/plugins/zsh-autosuggestions ]; then
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+if [ -d /usr/share/zsh/plugins/zsh-history-substring-search ]; then
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-history-substring-search.zsh
+fi
+
+if [ -d /usr/share/zsh/plugins/zsh-syntax-highlighting ]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [ -f "$HOME/.cargo/env" ]; then
+	source $HOME/.cargo/env
+fi
+
+if which fnm > /dev/null 2>&1; then
+	eval "$(fnm env)"
+fi
+
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+	source $ZSH/oh-my-zsh.sh
+fi
