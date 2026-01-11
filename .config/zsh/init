@@ -24,7 +24,7 @@ if [ -d /usr/share/zsh/plugins/zsh-autosuggestions ]; then
 fi
 
 if [ -d /usr/share/zsh/plugins/zsh-history-substring-search ]; then
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-history-substring-search.zsh
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
 if [ -d /usr/share/zsh/plugins/zsh-syntax-highlighting ]; then
