@@ -43,7 +43,6 @@ alias ubuntu="dk run --rm --name ubuntu -it ubuntu /bin/bash"
 # Node.js
 # ─────────────────────────────────────────
 alias js="node"
-alias n=node
 alias nrb='nr build'
 alias nrd='nr dev'
 alias nrf='nr format'
