@@ -1,0 +1,8 @@
+"$schema" = "https://starship.rs/config-schema.json"
+add_newline = true
+command_timeout = 500
+continuation_prompt = "[∙](bright-black) "
+follow_symlinks = true
+format = "$all"
+right_format = ""
+scan_timeout = 30
