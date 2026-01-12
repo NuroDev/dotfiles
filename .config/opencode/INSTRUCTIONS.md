@@ -150,7 +150,7 @@ Git
 
 - `clsx` and `tailwind-merge` for className management (If the project uses TailwindCSS)
 - `hono` for a HTTP framework
-- `neverthrow` for error handling
+- `better-result` for error handling
 - `wrangler` for Cloudflare Workers projects
 - `zod` for schema validation
 - Lucide icons if using icons. There is usually packages specifically for the UI framework being used, e.g. `lucide-react` for React, `lucide-preact` for Preact, etc.
@@ -171,6 +171,7 @@ Git
 - Data structures, such as objects, should have their properties or keys sorted alphabetically, when possible. There may be some cases where it is better to not have them sorted alphabetically, such as `package.json` which has a preferred order.
 - When creating a Hono router, chain handlers together like `app.get(...).get(...)` rather than `app.get(...); app.get(...); app.get(...);` to get full route type functionality.
 - Always use TypeScript's `strict` mode.
+- When possible, especially when performing asynchronous logic, try to make the function return a `Result` from `better-result` to allow for propper error handling.
 
 ### Don'ts
 
