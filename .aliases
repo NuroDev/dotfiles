@@ -76,7 +76,7 @@ alias nrt='nr test'
 # ---------------------------------------------
 # Shortcuts
 # ---------------------------------------------
-alias ai="opencode"
+alias ai="opencode --continue"
 alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
