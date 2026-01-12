@@ -38,7 +38,7 @@ cursor-style-blink = true
 # Shell
 # ─────────────────────────────────────────
 shell-integration = detect
-shell-integration-features = cursor,sudo,title
+shell-integration-features = cursor,ssh-terminfo,ssh-env,sudo,title
 
 # ─────────────────────────────────────────
 # Behavior
