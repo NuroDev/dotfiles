@@ -1,0 +1,5 @@
+# Disable automatic paging (Print the whole file in one go, like cat):
+--paging=never
+
+# Print in plain style, with no decorations
+--plain
