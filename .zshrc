@@ -62,18 +62,17 @@ source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substrin
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
 
-# (Lazy) Load modern completion system 
-autoload -Uz compinit
-if [[ -z "$ZSH_COMPDUMP" ]]; then
-	ZSH_COMPDUMP="${fpath[1]}/.zcompdump"
-fi
-{
-	compinit -C -d "$ZSH_COMPDUMP"
-} &!
-
-# Initialize oh-my-zsh
+# Lazy-load oh-my-zsh (deferred until first Tab press or explicit call)
 export ZSH=~/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+_lazy_load_omz() {
+	unset -f _lazy_load_omz
+	# Source oh-my-zsh (includes compinit)
+	source "$ZSH/oh-my-zsh.sh"
+	# Replay Tab to trigger completion
+	zle expand-or-complete
+}
+zle -N _lazy_load_omz
+bindkey '^I' _lazy_load_omz
 
 # Include functions file (if present) containing helper functions
 if [ -f ~/.functions ]; then
