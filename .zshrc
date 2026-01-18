@@ -30,7 +30,6 @@ plugins=(
 	fnm
 	git
 	history-substring-search
-	iterm2
 	kubectl
 	last-working-dir
 	macos
