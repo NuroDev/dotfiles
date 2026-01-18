@@ -1,12 +1,11 @@
+# Cache brew prefix to avoid repeated subprocess calls (major perf win)
+HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+
 # Python 3.9
-export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
+export PATH="$HOME/Library/Python/3.9/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/bin:$PATH"
 
 # Initialize starship prompt
 eval "$(starship init zsh)"
-
-# Set the ZSH shell theme
-source $(brew --prefix)/opt/spaceship/spaceship.zsh
-ZSH_THEME="spaceship"
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -29,11 +28,9 @@ plugins=(
 	docker-compose
 	fnm
 	git
-	history-substring-search
 	kubectl
 	last-working-dir
 	macos
-	starship
 	terraform
 )
 
@@ -51,18 +48,19 @@ if which fnm > /dev/null 2>&1; then
 fi
 
 # Golang
-if [ -d "$(brew --prefix)/Cellar/go" ]; then
+if [ -d "$HOMEBREW_PREFIX/Cellar/go" ]; then
 	export GOPATH=~/go/
-	export GOVERSION=$(find $(brew --prefix)/Cellar/go/ -maxdepth 1 -mindepth 1 -type d | sort | head -n 1 | xargs basename)
-	export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
+	# Use glob expansion instead of find pipeline (faster)
+	GOVERSION="${$(echo $HOMEBREW_PREFIX/Cellar/go/*(On[1])):t}"
+	export GOROOT="$HOMEBREW_PREFIX/Cellar/go/$GOVERSION/libexec"
 	export PATH="$GOPATH/bin:$PATH"
 fi
 
-# Initialize custom zsh plugins
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# Initialize custom zsh plugins (using cached HOMEBREW_PREFIX)
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
 
 # (Lazy) Load modern completion system 
 autoload -Uz compinit
