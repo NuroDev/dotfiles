@@ -32,7 +32,7 @@ whereami() {
 # ================================
 
 # Determine size of a file or total size of a directory
-fs() {
+function fs() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
 	else
@@ -49,11 +49,11 @@ fs() {
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-tre() {
+function tre() {
   tree -aC -I '.git|target|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-aliases () {
+function aliases () {
 	alias | grep "$1"
 }
 
@@ -106,16 +106,4 @@ latency() {
 	echo "Min: $min ms"
 	echo "Max: $max ms"
 	echo "Avg: $avg ms"
-}
-
-# Backup method to manually load oh-my-zsh if needed
-load_omz() {
-	if (( $+functions[_lazy_load_omz] )); then
-		source "$ZSH/oh-my-zsh.sh"
-		unset -f _lazy_load_omz
-		bindkey '^I' expand-or-complete
-		echo "oh-my-zsh loaded"
-	else
-		echo "oh-my-zsh already loaded"
-	fi
 }
