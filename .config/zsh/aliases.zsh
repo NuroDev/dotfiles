@@ -1,14 +1,14 @@
-# ---------------------------------------------
+# ─────────────────────────────────────────
 # Ansible
-# ---------------------------------------------
+# ─────────────────────────────────────────
 alias ans="ansible"
 alias ansg="ansible-galaxy"
 alias ansp="ansible-playbook"
 alias ansv="ansible-vault"
 
-# ---------------------------------------------
+# ─────────────────────────────────────────
 # Cargo
-# ---------------------------------------------
+# ─────────────────────────────────────────
 alias c="cargo"
 alias ca="cargo add"
 alias cargo-sort="cargo-sort-ck ./Cargo.toml -w"
@@ -19,18 +19,18 @@ alias crr="cargo run --release"
 alias cs="cargo-sort"
 alias ct="cargo test"
 
-# ---------------------------------------------
+# ─────────────────────────────────────────
 # Deno
-# ---------------------------------------------
+# ─────────────────────────────────────────
 alias dn="deno"
 alias dnf="deno fmt"
 alias dnl="deno lint"
 alias dnr="deno task"
 alias dnt="deno test"
 
-# ---------------------------------------------
+# ─────────────────────────────────────────
 # Homebrew
-# ---------------------------------------------
+# ─────────────────────────────────────────
 alias b=brew
 alias bi="b install"
 alias bic="b install --cask"
@@ -41,9 +41,9 @@ alias bug="b upgrade"
 alias bui="b uninstall"
 alias buic="b uninstall --cask"
 
-# ---------------------------------------------
+# ─────────────────────────────────────────
 # Containers / Docker
-# ---------------------------------------------
+# ─────────────────────────────────────────
 alias dcp="docker compose pull"
 alias dk="docker"
 alias dkimg="dk image"
@@ -61,9 +61,9 @@ alias dps="dk ps -a"
 alias alpine="dk run --rm --name alpine -it alpine /bin/sh"
 alias ubuntu="dk run --rm --name ubuntu -it ubuntu /bin/bash"
 
-# ---------------------------------------------
+# ─────────────────────────────────────────
 # Node.js
-# ---------------------------------------------
+# ─────────────────────────────────────────
 alias js="node"
 alias n=node
 alias nrb='nr build'
@@ -73,9 +73,9 @@ alias nrl='nr lint'
 alias nrs='nr start'
 alias nrt='nr test'
 
-# ---------------------------------------------
+# ─────────────────────────────────────────
 # Shortcuts
-# ---------------------------------------------
+# ─────────────────────────────────────────
 alias ai="opencode --continue"
 alias clock="tock -c -s -C 15"
 alias cls="clear"
