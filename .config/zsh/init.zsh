@@ -31,6 +31,10 @@ fi
 
 FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
 
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+	source $ZSH/oh-my-zsh.sh
+fi
+
 if [ -f "$HOME/.cargo/env" ]; then
 	source $HOME/.cargo/env
 fi
@@ -39,6 +43,6 @@ if which fnm > /dev/null 2>&1; then
 	eval "$(fnm env)"
 fi
 
-if [ -f "$ZSH/oh-my-zsh.sh" ]; then
-	source $ZSH/oh-my-zsh.sh
+if which wrangler > /dev/null 2>&1; then
+	eval "$(wrangler complete zsh)"
 fi
