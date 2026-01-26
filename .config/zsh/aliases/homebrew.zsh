@@ -1,0 +1,9 @@
+alias b=brew
+alias bi="b install"
+alias bic="b install --cask"
+alias binf="b info"
+alias bls="b ls"
+alias bud="b update"
+alias bug="b upgrade"
+alias bui="b uninstall"
+alias buic="b uninstall --cask"

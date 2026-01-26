@@ -1,0 +1,5 @@
+alias dn="deno"
+alias dnf="deno fmt"
+alias dnl="deno lint"
+alias dnr="deno task"
+alias dnt="deno test"
