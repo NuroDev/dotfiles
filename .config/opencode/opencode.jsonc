@@ -3,33 +3,53 @@
   "autoupdate": true,
   "instructions": ["{env:HOME}/.config/opencode/INSTRUCTIONS.md"],
   "mcp": {
+    "backstage": {
+      "type": "remote",
+      "url": "https://backstage.mcp.cfdata.org/mcp",
+      "enabled": false,
+    },
     "chrome-devtools": {
       "type": "local",
       "command": ["bunx", "-y", "chrome-devtools-mcp@latest"],
-      "enabled": false
+      "enabled": false,
     },
     "cloudflare-docs": {
       "type": "remote",
       "url": "https://docs.mcp.cloudflare.com/mcp",
-      "enabled": true
+      "enabled": true,
     },
     "cloudflare-builds": {
       "type": "remote",
       "url": "https://builds.mcp.cloudflare.com/mcp",
       "oauth": {},
-      "enabled": false
+      "enabled": false,
     },
     "cloudflare-observability": {
       "type": "remote",
       "url": "https://observability.mcp.cloudflare.com/mcp",
       "oauth": {},
-      "enabled": false
+      "enabled": false,
+    },
+    "gitlab": {
+      "type": "remote",
+      "url": "https://gitlab.mcp.cfdata.org/mcp",
+      "enabled": false,
     },
     "grep_app": {
       "type": "remote",
       "url": "https://mcp.grep.app",
-      "enabled": true
-    }
+      "enabled": true,
+    },
+    "jira": {
+      "type": "remote",
+      "url": "https://jira.mcp.cfdata.org/mcp",
+      "enabled": false,
+    },
+    "wiki": {
+      "type": "remote",
+      "url": "https://wiki.mcp.cfdata.org/mcp",
+      "enabled": false,
+    },
   },
-  "theme": "lucent-orng"
+  "theme": "lucent-orng",
 }
