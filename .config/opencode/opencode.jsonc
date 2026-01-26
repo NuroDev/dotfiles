@@ -66,6 +66,8 @@
       "ls": "allow",
       "pwd": "allow",
       "rg *": "allow",
+      "rm *": "deny",
+      "trash *": "ask",
       "which *": "allow",
       "whoami": "allow",
 
