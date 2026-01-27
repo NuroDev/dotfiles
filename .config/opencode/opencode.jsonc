@@ -124,7 +124,8 @@
       "yarn publish": "deny",
     },
     "edit": "ask",
-    "webfetch": "ask",
+    "read": "allow",
+    "webfetch": "allow",
   },
   "theme": "lucent-orng",
 }
