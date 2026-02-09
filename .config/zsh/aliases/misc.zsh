@@ -1,4 +1,4 @@
-alias ai="opencode --continue"
+alias ai="opencode"
 alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
