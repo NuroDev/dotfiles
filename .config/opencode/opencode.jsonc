@@ -59,7 +59,7 @@
       // Generic shell commands
       "cat *": "allow",
       "echo *": "allow",
-      "find *": "allow",
+      "find *": "ask",
       "grep *": "allow",
       "head *": "allow",
       "ls *": "allow",
