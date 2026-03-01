@@ -56,88 +56,116 @@ If using Bun as a package manager, try to use Bun's built-in test runner. Otherw
 
 ### Linting & Formatting
 
-Biome, preferrably with a JSONC configuration file similar to this:
+Oxc — use Oxfmt for formatting and Oxlint for linting.
 
-```jsonc
+#### Oxfmt
+
+Configure with a `.oxfmtrc.json` file similar to this:
+
+```json
 {
-  // Add a `$schema` with the Biome version here...
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on",
-        "recommended": true
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "ignorePatterns": [
+    ".astro/**/*",
+    ".wrangler/",
+    "bun.lock",
+    "dist/**/*",
+    "node_modules/**/*",
+    "pnpm-lock.yaml",
+    "worker-configuration.d.ts"
+  ],
+  "jsxSingleQuote": true,
+  "printWidth": 90,
+  "semi": true,
+  "singleAttributePerLine": true,
+  "singleQuote": true,
+  "sortImports": {
+    "groups": [
+      "builtin",
+      "external",
+      ["internal", "subpath"],
+      ["parent", "sibling", "index"],
+      "unknown"
+    ],
+    "internalPattern": ["~/*", "@/*"],
+    "newlinesBetween": true,
+    "order": "asc"
+  },
+  "sortPackageJson": true,
+  "sortTailwindcss": {
+    "functions": ["clsx", "cn", "cva", "tw"]
+  },
+  "tabWidth": 4,
+  "trailingComma": "all",
+  "useTabs": true
+}
+```
+
+#### Oxlint
+
+Configure with a `.oxlintrc.json` file similar to this:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "style": "warn",
+    "suspicious": "warn"
+  },
+  "globals": {
+    // Re-enable if the project uses Astro
+    "Astro": "readonly"
+  },
+  "plugins": ["import", "jsx-a11y", "react", "typescript", "unicorn"],
+  "rules": {
+    "array-type": [
+      "warn",
+      {
+        "default": "generic"
       }
-    }
-  },
-  "files": {
-    "includes": [
-      // Add file patterns to include here
-    ]
-  },
-  "formatter": {
-    "attributePosition": "multiline",
-    "enabled": true,
-    "indentStyle": "tab",
-    "indentWidth": 4,
-    "lineEnding": "lf",
-    "lineWidth": 90
-  },
-  "javascript": {
-    "formatter": {
-      "arrowParentheses": "always",
-      "attributePosition": "multiline",
-      "bracketSameLine": true,
-      "bracketSpacing": true,
-      "enabled": true,
-      "jsxQuoteStyle": "single",
-      "quoteStyle": "single",
-      "semicolons": "always"
-    },
-    "globals": ["Astro"] // Only needed if using Astro
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "nursery": {
-        "useSortedClasses": {
-          "fix": "safe",
-          "level": "warn",
-          "options": {}
-        }
-      },
-      "recommended": true,
-      "style": {
-        "noDefaultExport": "off",
-        "noInferrableTypes": "error",
-        "noParameterAssign": "error",
-        "noUnusedTemplateLiteral": "error",
-        "noUselessElse": "error",
-        "useArrayLiterals": "off",
-        "useAsConstAssertion": "error",
-        "useBlockStatements": "off",
-        "useConsistentArrayType": {
-          "level": "warn",
-          "options": {
-            "syntax": "generic"
-          }
-        },
-        "useDefaultParameterLast": "error",
-        "useEnumInitializers": "error",
-        "useFilenamingConvention": "off",
-        "useNamingConvention": "off",
-        "useNumberNamespace": "error",
-        "useSelfClosingElements": "error",
-        "useSingleVarDeclarator": "error"
-      },
-      "suspicious": {
-        "noArrayIndexKey": "off"
+    ],
+    "arrow-body-style": [
+      "warn",
+      "as-needed",
+      {
+        "requireReturnForObjectLiteral": true
       }
-    }
-  },
-  "vcs": {
-    "clientKind": "git",
-    "defaultBranch": "main",
-    "enabled": true
+    ],
+    "consistent-generic-constructors": "warn",
+    "consistent-type-definitions": ["warn", "interface"],
+    "curly": "off",
+    "default-param-last": "error",
+    "eqeqeq": "warn",
+    "func-style": ["error", { "allowArrowFunctions": true }],
+    "id-length": "off",
+    "max-statements": "off",
+    "no-default-export": "off",
+    "no-else-return": "error",
+    "no-inferrable-types": "error",
+    "no-magic-numbers": "off",
+    "no-param-reassign": "error",
+    "no-shadow": "error",
+    "no-ternary": "off",
+    "no-unnecessary-template-expression": "error",
+    "prefer-as-const": "error",
+    "prefer-enum-initializers": "error",
+    "prefer-object-spread": "off",
+    "prefer-template": "warn",
+    "react/no-array-index-key": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": "error",
+    "sort-imports": "warn",
+    "sort-keys": "warn",
+    "triple-slash-reference": "off",
+    "unicorn/filename-case": ["error", { "case": "kebabCase" }],
+    "unicorn/no-lonely-if": "error",
+    "unicorn/no-nested-ternary": "error",
+    "unicorn/switch-case-braces": "error"
   }
 }
 ```
