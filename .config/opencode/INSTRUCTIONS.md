@@ -141,7 +141,7 @@ Configure with a `.oxlintrc.json` file similar to this:
     "curly": "off",
     "default-param-last": "error",
     "eqeqeq": "warn",
-    "func-style": ["error", { "allowArrowFunctions": true }],
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
     "id-length": "off",
     "max-statements": "off",
     "no-default-export": "off",
