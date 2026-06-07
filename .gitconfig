@@ -1,6 +1,7 @@
 [user]
 	name = Ben Dixon
 	email = ben@nuro.dev
+	signingkey = ~/.ssh/id_ed25519.pub
 [github]
 	user = nurodev
 [color]
@@ -23,3 +24,11 @@
 [diff "lockb"]
 	textconv = bun
 	binary = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
