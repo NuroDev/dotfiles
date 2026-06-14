@@ -39,6 +39,10 @@ if [ -f "$HOME/.cargo/env" ]; then
 	source $HOME/.cargo/env
 fi
 
+if [ -d "$(brew --prefix rustup)/bin" ]; then
+	export PATH="$(brew --prefix rustup)/bin:$PATH"
+fi
+
 if which fnm > /dev/null 2>&1; then
 	eval "$(fnm env)"
 fi
