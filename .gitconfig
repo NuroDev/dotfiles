@@ -1,6 +1,6 @@
 [user]
 	name = Ben Dixon
-	email = ben@nuro.dev
+	email = bdixon@cloudflare.com
 	signingkey = ~/.ssh/id_ed25519.pub
 [github]
 	user = nurodev
