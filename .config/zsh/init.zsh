@@ -48,7 +48,7 @@ if which fnm > /dev/null 2>&1; then
 fi
 
 if which markdown > /dev/null 2>&1; then
-	eval "markdown completion zsh"
+	eval "$(markdown completion zsh)"
 fi
 
 if which wrangler > /dev/null 2>&1; then
