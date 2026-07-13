@@ -9,6 +9,11 @@ export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 export PATH="$HOME/Library/Python/3.9/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/bin:$PATH"
 
 # ─────────────────────────────────────────
+# Added by git-ai installer
+# ─────────────────────────────────────────
+export PATH="$HOME/.git-ai/bin:$PATH"
+
+# ─────────────────────────────────────────
 # Set my default text editor
 # ─────────────────────────────────────────
 export EDITOR="code --wait"
