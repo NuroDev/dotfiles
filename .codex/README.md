@@ -4,19 +4,36 @@ Global setup for [OpenAI Codex](https://developers.openai.com/codex). Codex read
 
 ## What's tracked
 
-- **`AGENTS.md`** - my global coding standards, auto-loaded by Codex for every session. Direct port of `~/.config/opencode/INSTRUCTIONS.md`. Single source of truth; edit here, then copy to `~/.codex/AGENTS.md`.
-- **`config.toml`** - the portable, user-owned baseline: model prefs + my MCP servers (ported from `opencode.jsonc`). See the caveat below before symlinking it.
+- **`AGENTS.md`** - my global coding standards, auto-loaded by Codex for every session. Direct port of `~/.config/opencode/INSTRUCTIONS.md`. This is the single source of truth; edit it here, then copy to `~/.codex/AGENTS.md`.
 
-## config.toml: the overwrite caveat
+## What's NOT tracked (and why)
 
-`~/.codex/config.toml` is **also managed by the ChatGPT desktop app**, which rewrites model, per-project `trust_level`, `marketplaces` (with timestamps), `plugins`, and the bundled `node_repl` / `computer-use` MCP servers. The tracked `config.toml` here intentionally holds **only** the portable keys and omits all of that machine-specific state.
+`~/.codex/config.toml` is **managed by the ChatGPT desktop app** (it rewrites model, trust levels, marketplaces, plugins, and the bundled `node_repl` / `computer-use` MCP servers). Tracking it would fight the app, so it stays local. The only pieces I add by hand are the MCP servers below, ported from `opencode.jsonc`. Re-apply them by appending to `~/.codex/config.toml` if the file is ever reset:
 
-If you symlink `~/.codex/config.toml` → this file, two things can go wrong:
+```toml
+[mcp_servers.cf-portal]
+enabled = true
+url = "https://portal.mcp.cfdata.org/mcp"
 
-1. **The app writes through the symlink**, polluting this tracked file with machine-specific churn (absolute paths, timestamps, trust decisions) that then shows up in `git status`.
-2. **The app replaces the symlink** with a regular file, silently breaking the link.
+[mcp_servers.grep_app]
+enabled = true
+url = "https://mcp.grep.app"
 
-**Verify before relying on it:** create the symlink, then trigger a config write in the app (trust a project, or toggle a setting), and check `ls -l ~/.codex/config.toml` still points here and `git -C ~/dotfiles status` is clean. The standalone `codex` CLI (npm `@openai/codex`) is far less aggressive about rewriting config than the desktop app, so the symlink is safer there.
+[mcp_servers.chrome-devtools]
+args = ["-y", "chrome-devtools-mcp@latest"]
+command = "bunx"
+enabled = false
+
+[mcp_servers.cloudflare-builds]
+auth = "oauth"
+enabled = false
+url = "https://builds.mcp.cloudflare.com/mcp"
+
+[mcp_servers.cloudflare-observability]
+auth = "oauth"
+enabled = false
+url = "https://observability.mcp.cloudflare.com/mcp"
+```
 
 ## Instruction precedence
 
