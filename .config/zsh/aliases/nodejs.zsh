@@ -1,5 +1,6 @@
 alias js="node"
 alias n=node
+alias npmup='make -C ~/config npm'
 alias nrb='nr build'
 alias nrd='nr dev'
 alias nrf='nr format'
