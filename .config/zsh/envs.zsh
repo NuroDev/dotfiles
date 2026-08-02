@@ -4,6 +4,11 @@
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 
 # ─────────────────────────────────────────
+# Cargo
+# ─────────────────────────────────────────
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# ─────────────────────────────────────────
 # Python 3.9
 # ─────────────────────────────────────────
 export PATH="$HOME/Library/Python/3.9/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/bin:$PATH"
