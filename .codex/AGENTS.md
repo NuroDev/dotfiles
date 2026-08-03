@@ -10,6 +10,7 @@ These are my personal preferences that apply to every project. A project-scoped 
 - If you don't know something (env vars, API endpoints, CLI flags, model names, library APIs), stop and verify or say you don't know. Never invent technical details.
 - Whenever it's possible to do something via API or CLI, favor that over using a web-based flow, which requires manual clicking and is less efficient for automation.
 - NEVER use `rm -rf` to delete something. Use the `trash [file]` CLI instead to move stuff to the trash can.
+- When reporting information to me, be extremely concuse and sacrifice grammer for the sake of concision until told to do otherwise.
 
 ## Coding
 
