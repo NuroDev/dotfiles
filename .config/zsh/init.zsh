@@ -51,6 +51,6 @@ if which markdown > /dev/null 2>&1; then
 	eval "$(markdown completion zsh)"
 fi
 
-if which wrangler > /dev/null 2>&1; then
-	eval "$(wrangler complete zsh)"
+if which cf > /dev/null 2>&1; then
+	eval "$(cf complete zsh)"
 fi
