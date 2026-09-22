@@ -4,6 +4,10 @@
   "default_agent": "plan",
   "instructions": ["{env:HOME}/.config/opencode/INSTRUCTIONS.md"],
   "mcp": {
+    "polylane": {
+      "type": "remote",
+      "url": "https://mcp.polylane.com/mcp"
+    },
     "chrome-devtools": {
       "type": "local",
       "command": ["bunx", "-y", "chrome-devtools-mcp@latest"],
