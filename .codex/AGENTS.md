@@ -82,7 +82,7 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
     - ORM: Drizzle
 - Error handling: `better-result` package
 - Schema validation: `zod` package
-- CLI: `citty` package
+- CLI: `citty` or `gunshi ` package
 
 ### Style
 
