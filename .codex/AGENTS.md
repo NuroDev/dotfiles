@@ -73,15 +73,15 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 - Test runner: `vitest`
 - Frontend: React or Preact
   - Unstyled components: Base UI
-  - Icons: Lucide icons
+  - Icons: Lucide Icons or Nucleo Icons
 - Styling: TailwindCSS
-  - `clsx` and `tailwind-merge` for class name management
-- Backend: Node.js
-  - HTTP router: `hono` package
+  - `cnfast` for class name management
+- Backend: Node.js or Cloudflare Workers
+  - HTTP router: `hono` package for small projects, oRPC for larger ones
   - Database: SQLite for small projects, PostgreSQL for larger ones
     - ORM: Drizzle
 - Error handling: `better-result` package
-- Schema validation: `zod` package
+- Schema validation: `zod` package for server-side, `valibot` for client-side
 - CLI: `citty` or `gunshi ` package
 
 ### Style
