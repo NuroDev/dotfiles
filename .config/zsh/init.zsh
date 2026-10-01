@@ -54,3 +54,7 @@ fi
 if which cf > /dev/null 2>&1; then
 	eval "$(cf complete zsh)"
 fi
+
+if which vp > /dev/null 2>&1; then
+	. "$HOME/.config/vite-plus/env"
+fi
