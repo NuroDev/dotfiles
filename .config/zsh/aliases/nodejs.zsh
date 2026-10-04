@@ -1,6 +1,6 @@
 alias js="node"
 alias n=node
-alias npmup='npm install -g $(npm ls -g --json | jq -r ".dependencies|keys|join(\" \")")'
+alias npmup='vp update -g'
 
 alias nrb='nr build'
 alias nrd='nr dev'

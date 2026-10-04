@@ -9,7 +9,6 @@ plugins=(
 	deno
 	docker
 	docker-compose
-	fnm
 	git
 	kubectl
 	last-working-dir
@@ -43,10 +42,6 @@ if [ -d "$(brew --prefix rustup)/bin" ]; then
 	export PATH="$(brew --prefix rustup)/bin:$PATH"
 fi
 
-if which fnm > /dev/null 2>&1; then
-	eval "$(fnm env)"
-fi
-
 if which markdown > /dev/null 2>&1; then
 	eval "$(markdown completion zsh)"
 fi
@@ -55,6 +50,6 @@ if which cf > /dev/null 2>&1; then
 	eval "$(cf complete zsh)"
 fi
 
-if which vp > /dev/null 2>&1; then
-	. "$HOME/.config/vite-plus/env"
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env"
 fi
