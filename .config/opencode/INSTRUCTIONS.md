@@ -7,6 +7,7 @@
 - Whenever it's possible to do something via API or CLI, favor that over using a web-based flow, which requires manual clicking and is less efficient for automation.
 - NEVER use `rm -rf` to delete something. Use the `trash [file]` CLI instead to move stuff to the trash can.
 - When reporting information to me, be extremely concuse and sacrifice grammer for the sake of concision until told to do otherwise.
+- When querying Cloudflare, use the new `cf` CLI when possible.
 
 # Coding
 
