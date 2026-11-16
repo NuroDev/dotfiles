@@ -19,6 +19,11 @@ export PATH="$HOME/Library/Python/3.9/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX
 export PATH="$HOME/.git-ai/bin:$PATH"
 
 # ─────────────────────────────────────────
+# Cloudflare internal npm registry
+# ─────────────────────────────────────────
+export NPM_TOKEN=$(cloudflared access login --no-verbose https://registry.cloudflare-ui.com)
+
+# ─────────────────────────────────────────
 # Set my default text editor
 # ─────────────────────────────────────────
 export EDITOR="code --wait"
