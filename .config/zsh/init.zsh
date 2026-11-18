@@ -47,6 +47,16 @@ if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env" ]; then
 	. "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env"
 fi
 
-if which cf > /dev/null 2>&1; then
-	eval "$(cf complete zsh)"
+# shortcut: `cf complete zsh` emits static text but costs ~290ms, so cache it
+# until the binary changes; clear the cache by hand if Vite+ ever ships new
+# completions without touching the `vp` binary
+if (( $+commands[cf] )); then
+	cf_completion="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/cf-completion.zsh"
+
+	if [[ ! -s $cf_completion || $commands[cf] -nt $cf_completion ]]; then
+		mkdir -p "${cf_completion:h}" && cf complete zsh > "$cf_completion"
+	fi
+
+	source "$cf_completion"
+	unset cf_completion
 fi
