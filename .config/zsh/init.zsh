@@ -38,8 +38,8 @@ if [ -f "$HOME/.cargo/env" ]; then
 	source $HOME/.cargo/env
 fi
 
-if [ -d "$(brew --prefix rustup)/bin" ]; then
-	export PATH="$(brew --prefix rustup)/bin:$PATH"
+if [ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ]; then
+	export PATH="$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
 fi
 
 # must precede the `cf` completion block below, which needs cf on PATH
