@@ -46,10 +46,11 @@ if which markdown > /dev/null 2>&1; then
 	eval "$(markdown completion zsh)"
 fi
 
-if which cf > /dev/null 2>&1; then
-	eval "$(cf complete zsh)"
-fi
-
+# must precede the `cf` completion block below, which needs cf on PATH
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env" ]; then
 	. "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env"
+fi
+
+if which cf > /dev/null 2>&1; then
+	eval "$(cf complete zsh)"
 fi
