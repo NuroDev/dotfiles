@@ -54,7 +54,11 @@ if (( $+commands[cf] )); then
 	cf_completion="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/cf-completion.zsh"
 
 	if [[ ! -s $cf_completion || $commands[cf] -nt $cf_completion ]]; then
-		mkdir -p "${cf_completion:h}" && cf complete zsh > "$cf_completion"
+		# via a temp file, so a crashed generator cannot leave a
+		# truncated cache that every later shell would source
+		mkdir -p "${cf_completion:h}" &&
+			cf complete zsh > "$cf_completion.tmp" &&
+			mv -f "$cf_completion.tmp" "$cf_completion"
 	fi
 
 	source "$cf_completion"
