@@ -42,10 +42,6 @@ if [ -d "$(brew --prefix rustup)/bin" ]; then
 	export PATH="$(brew --prefix rustup)/bin:$PATH"
 fi
 
-if which markdown > /dev/null 2>&1; then
-	eval "$(markdown completion zsh)"
-fi
-
 # must precede the `cf` completion block below, which needs cf on PATH
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env" ]; then
 	. "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env"
