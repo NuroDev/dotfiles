@@ -8,10 +8,10 @@ These are my personal preferences that apply to every project. A project-scoped 
 - Push back with specific reasons when you disagree. If it's a gut feeling, say so.
 - Your training data is stale. Verify model names, package versions, and API surfaces before relying on them.
 - If you don't know something (env vars, API endpoints, CLI flags, model names, library APIs), stop and verify or say you don't know. Never invent technical details.
-- Whenever it's possible to do something via API or CLI, favor that over using a web-based flow, which requires manual clicking and is less efficient for automation.
-- NEVER use `rm -rf` to delete something. Use the `trash [file]` CLI instead to move stuff to the trash can.
-- When reporting information to me, be extremely concuse and sacrifice grammer for the sake of concision until told to do otherwise.
-- When querying Cloudflare, use the new `cf` CLI when possible.
+- Prefer an API or CLI over a web flow that needs manual clicking.
+- NEVER use `rm -rf`. Use the `trash` CLI instead.
+- When reporting information to me, be extremely concise. Sacrifice grammar for concision until told otherwise.
+- When querying Cloudflare, use the `cf` CLI. Fall back to Wrangler only where `cf` has no equivalent command.
 
 ## Coding
 
@@ -21,11 +21,10 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 
 ### Rules
 
-- State assumptions explicitly before implementing. If uncertain, ask.
+- State assumptions explicitly before implementing. If something is unclear, name what's confusing instead of guessing.
 - Don't say a task is done until typechecks, linters, and tests pass. If none are configured, say so explicitly instead of claiming success.
 - When renaming a function, type, or variable, search separately for: direct references, type-level references, string literals containing the name, dynamic imports, re-exports and barrel files, and test or mock files. One grep is not enough.
 - Ask for explicit permission before adding or installing any new dependencies.
-- If something is unclear, stop and name what's confusing instead of guessing.
 - Write the minimum code that solves the problem. No speculative features, no abstractions for single-use code, no configurability that wasn't asked for.
 - Don't add error handling for impossible scenarios.
 - Touch only what the task requires. Don't "improve" adjacent code, comments, or formatting.
@@ -38,7 +37,7 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 
 - Always use `git` as the version control system.
 - Commits should be concise & focused on one key change at a time (unless explicitly told otherwise).
-- Always use a semantic commit prefixes, with or without parenthetical qualifiers.
+- Always use a semantic commit prefix. The parenthetical scope is optional: `feat(agents):` and `feat:` are both fine.
 - When opening pull requests or merge requests, always use a semantic commit message as the title.
 - Never bypass pre-commit hooks. Never use `--no-verify` or equivalent flags without explicit permission.
 
@@ -46,7 +45,7 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 
 - **Arrow function parens**: always
 - **Bracket spacing**: `{ foo }`
-- **Indentation**: 4 tabs
+- **Indentation**: tabs, width 4
 - **Quotes**: single quotes
 - **Semicolons**: always
 - **Trailing commas**: always
@@ -58,15 +57,15 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 - **Constants**: UPPER_SNAKE_CASE
 - **Database tables**: snake_case, plural
 - **Directories**: kebab-case, lowercase
-- **Files**: kebab-case, camelCase, PascalCase for components
+- **Files**: kebab-case, component files included
 - **Functions**: camelCase, verb-first like `getUserById`
-- **Interfaces/Types**: PascalCase, with or without I prefix
+- **Interfaces/Types**: PascalCase, no `I` prefix
 - **Variables**: camelCase
 - **Zod Schema**: PascalCase
 
 ### Preferred languages, tools & frameworks
 
-- Primary languages: TypeScript (when possible)
+- Primary language: TypeScript
 - Package manager: pnpm
 - Linting: `oxlint` package
 - Formatting: `oxfmt` package
@@ -88,18 +87,18 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 ### Style
 
 - Use early returns to reduce nesting.
-- Prefer `const` over `let`.
-- Use descriptive variable names, but not too long that it is hard to read.
-- Try to use `function` over arrow functions for named functions, unless you specifically need lexical `this`.
+- Use `const` unless the binding is reassigned.
+- Use descriptive variable names, but not so long they're hard to read.
+- Use `function` for named functions. Reach for an arrow function when you need lexical `this`.
 - Add error handling for external calls (network, database, filesystem, etc.)
-- Try to use import path aliases, when possible, such as `~/*`
-- Data structures, such as objects, should have their properties or keys sorted alphabetically, when possible. There may be some cases where it is better to not have them sorted alphabetically, such as `package.json` which has a preferred order.
+- Use import path aliases such as `~/*` instead of deep relative paths.
+- Sort object properties and keys alphabetically. Exception: files with a conventional order, like `package.json`.
 - When creating a Hono router, chain handlers together like `app.get(...).get(...)` rather than `app.get(...); app.get(...); app.get(...);` to get full route type functionality.
 - Always use TypeScript's `strict` mode.
-- When possible, especially when performing asynchronous logic, try to make the function return a `Result` from `better-result` to allow for propper error handling.
+- Return a `Result` from `better-result` from any function that can fail, especially async ones, so callers handle errors explicitly.
 - Define schemas (e.g. Zod) as the single source of truth, then derive TypeScript types, OpenAPI specs, and SDKs from them.
 - Use schema-first design: the schema defines the contract, and the implementation conforms to it. Don't generate types from runtime behavior.
-- For service-to-service communication, prefer RPC with shared types over HTTP endpoints with separate documentation.
+- For service-to-service communication, use RPC with shared types rather than HTTP endpoints with separate documentation.
 - Don't use `any` type in TypeScript
 - Don't leave `console.log` in production code
 - Don't nest callbacks more than 2 levels deep
@@ -108,14 +107,14 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 
 - **Function comments**: JSDoc for public functions only
 - **Inline comments**: only for complex logic
-- **TODO format**: TODO(@username)
+- **TODO format**: `TODO(@nurodev)`
 - **README requirements**: always include setup instructions
 
 ### Testing
 
 - **Test file location**: in `__tests__` folder
 - **Test file naming**: \*.test.ts
-- **Coverage target**: 80%, focus on critical paths. But try to aim for high coverage overall.
+- **Coverage target**: 80% floor. Critical paths take priority where the two conflict.
 - **Hono Testing**: When using a project that uses a Hono router, use the `testClient` helper from `hono/testing`.
 
 ### Security practices
