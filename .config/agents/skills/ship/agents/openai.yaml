@@ -1,4 +1,0 @@
-interface:
-  display_name: "Ship"
-  short_description: "Plan, build, test, and review with bounded loops"
-  default_prompt: "Use $ship to complete this coding task through planning, independent testing, review, and verified delivery."
