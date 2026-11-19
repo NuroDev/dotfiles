@@ -5,20 +5,7 @@ One instruction doc and one set of skills, shared by every AI coding agent I use
 ## What's tracked
 
 - **`AGENTS.md`** - my global coding standards. The single source of truth; edit this file and nothing downstream of it.
-- **`skills/`** - skills shared by every agent, one directory each. Some are vendored from upstream; see below.
-
-## Vendored skills
-
-Copied in rather than installed through an agent's plugin system, so every agent gets them from one place. Re-vendor by copying the upstream directory over the local one.
-
-| Skill(s) | Upstream | Pinned at | License |
-| --- | --- | --- | --- |
-| `security-audit` | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `c1c8a8c` | MIT, in the skill directory |
-| `agents-sdk`, `cf-cli`, `cloudflare`, `durable-objects`, `frameworks-on-cloudflare`, `gateway-workers`, `workers-best-practices`, `workers-profiling`, `wrangler` | [cloudflare/skills](https://github.com/cloudflare/skills) | `5108325` | Apache 2.0, `skills/LICENSE.cloudflare-skills` |
-
-The Cloudflare set keeps its upstream directory names because the skills route to each other by name. Only the nine above are vendored, not the whole upstream set, so some of those routes (`basin`, `k2`, `cloudflare-one`, `sandbox-*`, `turnstile-spin`, `web-perf`, and others) point at skills that are not installed; every one of them also carries a docs URL, so an agent still has somewhere to go.
-
-Claude Code additionally has the full upstream set through the `cloudflare@cloudflare` plugin, so it sees both copies of the nine. The plugin also registers Cloudflare's Code Mode MCP server, which vendoring does not.
+- **`skills/`** - skills shared by every agent, one directory each.
 
 ## How each agent reads it
 
