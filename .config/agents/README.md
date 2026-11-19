@@ -23,9 +23,15 @@ Copied in rather than installed from a marketplace. Re-vendor by copying the ups
 
 | Skill | Upstream | Pinned at | License |
 | --- | --- | --- | --- |
+| `apple-design` | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `64eb3de` | MIT, in the skill directory |
+| `break-ui` | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `64eb3de` | MIT, in the skill directory |
+| `emil-design-eng` | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `64eb3de` | MIT, in the skill directory |
+| `mobile-native` | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `64eb3de` | MIT, in the skill directory |
 | `security-audit` | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `c1c8a8c` | MIT, in the skill directory |
 
-Cloudflare's platform skills are not vendored. They come from the `cloudflare@cloudflare` plugin, declared in `config/agents.yml`, which also brings the Cloudflare API MCP server.
+`emilkowalski/skills` ships no `.claude-plugin/marketplace.json`, so there is no plugin to install; `npx skills add` is the other option, but it writes into `~/.claude/skills` itself and keeps its own lock file, which collides with the symlinks the playbook puts there. Four of its twenty skills are vendored: `emil-design-eng` is the superset of the animation advice and the `animate*` / `review-animations` family restates it, while `animate-expo` and `write-swift` target React Native and Swift. The four `SKILL.md` files cross-reference skills that are not installed; those pointers just go nowhere.
+
+Cloudflare's platform skills are not vendored. They come from the `cloudflare@cloudflare` plugin, declared in `config/agents.yml`, which also brings the Cloudflare API MCP server. Matt Pocock's skills are not vendored either: `mattpocock-skills@claude-plugins-official` carries all 27 of them and updates itself.
 
 ## Generated skills
 
