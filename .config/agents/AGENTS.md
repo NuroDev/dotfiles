@@ -1,6 +1,6 @@
 # Global standards
 
-These are my personal preferences that apply to every project. A project-scoped `AGENTS.md` closer to the working directory overrides anything here.
+These are my personal preferences that apply to every project. A project-scoped `AGENTS.md` or `CLAUDE.md` closer to the working directory overrides anything here.
 
 ## General rules
 
@@ -83,7 +83,7 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
     - ORM: Drizzle
 - Error handling: `better-result` package
 - Schema validation: `zod` package for server-side, `valibot` for client-side
-- CLI: `citty` or `gunshi ` package
+- CLI: `citty` or `gunshi` package
 
 ### Style
 
@@ -113,7 +113,7 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 
 ### Testing
 
-- **Test file location**: in \***\*tests\*\*** folder
+- **Test file location**: in `__tests__` folder
 - **Test file naming**: \*.test.ts
 - **Coverage target**: 80%, focus on critical paths. But try to aim for high coverage overall.
 - **Hono Testing**: When using a project that uses a Hono router, use the `testClient` helper from `hono/testing`.
