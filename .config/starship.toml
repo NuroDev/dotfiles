@@ -1,0 +1,6 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# the Vite+ `node` shim can refetch the Node release index (1h cache) or
+# download a new patch release before answering `node --version`, which
+# regularly blows past the 500ms default
+command_timeout = 2000
