@@ -1,4 +1,3 @@
-alias ai="opencode"
 alias clock="tock -c -s -C 15"
 alias cls="clear"
 alias config="edit ~/.zshrc"
@@ -12,7 +11,6 @@ alias ls="lsd -l"
 alias markdown="glow"
 alias minify="tr -d "\n\r""
 alias mkv-to-mp4="for f in *.mkv; do ffmpeg -i "$f" -c copy "${f%.mkv}.mp4"; done"
-alias oc="opencode"
 alias pod64='arch -x86_64 pod'
 alias prune-ds-store="/usr/bin/find . -name ".DS_Store" -depth -exec rm {} \;"
 alias prune-node-modules='find . -name "node_modules" -type d -prune -exec rm -rf {} \;'
