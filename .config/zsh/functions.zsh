@@ -3,12 +3,12 @@ aliases () {
 }
 
 dir() {
-  mkdir -p $1
-  cd $1
+	mkdir -p "$1"
+	cd "$1"
 }
 
 edit() {
-  code ${1:-.} # Default to .
+	code ${1:-.} # Default to .
 }
 
 # ─────────────────────────────────────────
@@ -37,7 +37,7 @@ latency() {
 		echo "Usage: latency <url> [number_of_requests]"
 		return 1
 	fi
-  
+
 	local url="$1"
 	local times=${2:-10}
 
@@ -48,32 +48,34 @@ latency() {
 
 	# Collect all measurements
 	local results=()
+	local timeTotal
 	for i in $(seq 1 $times); do
-		local result=$(curl -o /dev/null -s -w '%{time_total}' "$url" | awk '{printf "%.0f", $1 * 1000}')
+		if ! timeTotal=$(curl -o /dev/null -s -w '%{time_total}' "$url"); then
+			echo "Request $i: failed"
+			continue
+		fi
+		local result=$(echo "$timeTotal" | awk '{printf "%.0f", $1 * 1000}')
 		results+=($result)
 		echo "Request $i: $result ms"
 	done
 
+	if (( ${#results} == 0 )); then
+		echo "Error: all $times requests failed"
+		return 1
+	fi
+
 	# Calculate statistics
 	local sum=0
-	local min=${results[0]}
-	local max=${results[0]}
-
-	# Make sure min is initialized properly
-	if [[ -z "$min" ]]; then
-		min=${results[1]}
-	fi
+	local min=${results[1]}
+	local max=${results[1]}
 
 	for val in "${results[@]}"; do
-	# Skip empty values
-	if [[ -n "$val" ]]; then
 		sum=$((sum + val))
-		if (( val < min )) || [[ -z "$min" ]]; then min=$val; fi
+		if (( val < min )); then min=$val; fi
 		if (( val > max )); then max=$val; fi
-	fi
 	done
 
-	local avg=$((sum / times))
+	local avg=$((sum / ${#results}))
 
 	echo "------------------------"
 	echo "Min: $min ms"
@@ -88,11 +90,11 @@ latency() {
 # small enough for one screen.
 # ─────────────────────────────────────────
 tre() {
-  tree -aC -I '.git|target|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+	tree -aC -I '.git|target|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
 tree() {
-  command tree -I 'node_modules' -I 'target' "$@"
+	command tree -I 'node_modules' -I 'target' "$@"
 }
 
 # ─────────────────────────────────────────
@@ -101,11 +103,11 @@ tree() {
 # Source: trozler/whereAmI
 # https://github.com/trozler/whereAmI/blob/master/findmepls.sh
 # ─────────────────────────────────────────
-whereami() { 
-  RESP=$(curl -s "ipinfo.io")
+whereami() {
+	RESP=$(curl -s "ipinfo.io")
 	CITY=$(echo "$RESP" | jq -r '.city')
 	COUNTRY=$(echo "$RESP" | jq -r '.country')
 	IP=$(echo "$RESP" | jq -r '.ip')
 	REGION=$(echo "$RESP" | jq -r '.region')
 	printf "%s - %s, %s, %s.\n" "$IP" "$CITY" "$REGION" "$COUNTRY"
-} || echo "lost - somewhere off the shoulder of Orion.";
+}
