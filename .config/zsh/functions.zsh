@@ -3,8 +3,8 @@ aliases () {
 }
 
 dir() {
-	mkdir -p $1
-	cd $1
+	mkdir -p "$1"
+	cd "$1"
 }
 
 edit() {
@@ -108,4 +108,4 @@ whereami() {
 	IP=$(echo "$RESP" | jq -r '.ip')
 	REGION=$(echo "$RESP" | jq -r '.region')
 	printf "%s - %s, %s, %s.\n" "$IP" "$CITY" "$REGION" "$COUNTRY"
-} || echo "lost - somewhere off the shoulder of Orion.";
+}
