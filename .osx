@@ -163,7 +163,7 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
-# Bottom right screen corner → Mission Control
+# Bottom right, top right and bottom left screen corners → no-op
 defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
 defaults write com.apple.dock wvous-tr-corner -int 0
