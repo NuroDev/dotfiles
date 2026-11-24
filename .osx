@@ -116,7 +116,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # Show path bar in the bottom of the Finder windows
-defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
+defaults write com.apple.finder "ShowPathbar" -bool "true"
 
 # Set the size of icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
@@ -170,8 +170,6 @@ defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-bl-modifier -int 0
-
-killall Dock
 
 ###############################################################################
 # Safari & WebKit                                                             #
