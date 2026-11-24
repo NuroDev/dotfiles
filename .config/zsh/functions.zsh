@@ -48,32 +48,34 @@ latency() {
 
 	# Collect all measurements
 	local results=()
+	local timeTotal
 	for i in $(seq 1 $times); do
-		local result=$(curl -o /dev/null -s -w '%{time_total}' "$url" | awk '{printf "%.0f", $1 * 1000}')
+		if ! timeTotal=$(curl -o /dev/null -s -w '%{time_total}' "$url"); then
+			echo "Request $i: failed"
+			continue
+		fi
+		local result=$(echo "$timeTotal" | awk '{printf "%.0f", $1 * 1000}')
 		results+=($result)
 		echo "Request $i: $result ms"
 	done
 
+	if (( ${#results} == 0 )); then
+		echo "Error: all $times requests failed"
+		return 1
+	fi
+
 	# Calculate statistics
 	local sum=0
-	local min=${results[0]}
-	local max=${results[0]}
-
-	# Make sure min is initialized properly
-	if [[ -z "$min" ]]; then
-		min=${results[1]}
-	fi
+	local min=${results[1]}
+	local max=${results[1]}
 
 	for val in "${results[@]}"; do
-	# Skip empty values
-	if [[ -n "$val" ]]; then
 		sum=$((sum + val))
-		if (( val < min )) || [[ -z "$min" ]]; then min=$val; fi
+		if (( val < min )); then min=$val; fi
 		if (( val > max )); then max=$val; fi
-	fi
 	done
 
-	local avg=$((sum / times))
+	local avg=$((sum / ${#results}))
 
 	echo "------------------------"
 	echo "Min: $min ms"
