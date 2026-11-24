@@ -1,5 +1,8 @@
 .bundle
+.env
 .vercel
 *.DS_Store
 *.LSOverride
 Thumbs.db
+**/.claude/settings.local.json
+**/.claude/.cc-writes/
