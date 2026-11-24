@@ -11,7 +11,6 @@
 	status = auto
 [core]
 	autocrlf = input
-	editor = nano
 	excludesfile = ~/.gitignore
 [init]
 	defaultBranch = main
