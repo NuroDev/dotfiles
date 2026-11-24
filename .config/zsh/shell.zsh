@@ -13,8 +13,7 @@ export PATH="./bin:$HOME/.local/bin:$PATH"
 set +h
 
 # ─────────────────────────────────────────
-# Load modern completion system
+# Completion (compinit runs in init.zsh)
 # ─────────────────────────────────────────
-autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 bindkey -e
