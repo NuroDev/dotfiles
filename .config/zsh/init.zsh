@@ -5,7 +5,6 @@ fi
 plugins=(
 	ansible
 	brew
-	bun
 	deno
 	docker
 	docker-compose
@@ -32,10 +31,6 @@ FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
 
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
 	source $ZSH/oh-my-zsh.sh
-fi
-
-if [ -f "$HOME/.cargo/env" ]; then
-	source $HOME/.cargo/env
 fi
 
 if [ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ]; then

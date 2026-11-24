@@ -21,9 +21,6 @@
 	insteadOf = github:
 [url "ssh://git@github.com/"]
 	insteadOf = gh:
-[diff "lockb"]
-	textconv = bun
-	binary = true
 [gpg]
 	format = ssh
 [commit]

@@ -9,8 +9,7 @@ SAVEHIST=$HISTSIZE
 # ─────────────────────────────────────────
 # Set complete path
 # ─────────────────────────────────────────
-export PATH="./bin:$HOME/.local/bin:$PATH"
-set +h
+export PATH="$HOME/.local/bin:$PATH:./bin"
 
 # ─────────────────────────────────────────
 # Load modern completion system

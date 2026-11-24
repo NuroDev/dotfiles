@@ -9,9 +9,9 @@ export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # ─────────────────────────────────────────
-# Python 3.9
+# Homebrew
 # ─────────────────────────────────────────
-export PATH="$HOME/Library/Python/3.9/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/bin:$PATH"
 
 # ─────────────────────────────────────────
 # Set my default text editor
