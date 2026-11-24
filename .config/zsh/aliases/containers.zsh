@@ -10,7 +10,6 @@ alias dkr="dk run"
 alias dkrm="dk rm"
 alias dks="dk stop"
 alias dkst="dk stats"
-alias dps="dk ps -a"
 
 alias alpine="dk run --rm --name alpine -it alpine /bin/sh"
 alias ubuntu="dk run --rm --name ubuntu -it ubuntu /bin/bash"
