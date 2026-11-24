@@ -9,12 +9,10 @@ SAVEHIST=$HISTSIZE
 # ─────────────────────────────────────────
 # Set complete path
 # ─────────────────────────────────────────
-export PATH="./bin:$HOME/.local/bin:$PATH"
-set +h
+export PATH="$HOME/.local/bin:$PATH:./bin"
 
 # ─────────────────────────────────────────
-# Load modern completion system
+# Completion (compinit runs in init.zsh)
 # ─────────────────────────────────────────
-autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 bindkey -e

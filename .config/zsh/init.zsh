@@ -5,7 +5,6 @@ fi
 plugins=(
 	ansible
 	brew
-	bun
 	deno
 	docker
 	docker-compose
@@ -20,22 +19,15 @@ if [ -d $HOMEBREW_PREFIX/share/zsh-autosuggestions ]; then
   source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
-if [ -d $HOMEBREW_PREFIX/share/zsh-history-substring-search ]; then
-  source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
-fi
-
-if [ -d $HOMEBREW_PREFIX/share/zsh-syntax-highlighting ]; then
-  source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
-
-FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
+# oh-my-zsh runs the only compinit, so every completion dir must be on fpath
+# first; its brew plugin adds site-functions only after compinit
+typeset -U fpath
+fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath "$HOMEBREW_PREFIX/share/zsh/site-functions")
 
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
 	source $ZSH/oh-my-zsh.sh
-fi
-
-if [ -f "$HOME/.cargo/env" ]; then
-	source $HOME/.cargo/env
+else
+	autoload -Uz compinit && compinit
 fi
 
 if [ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ]; then
@@ -63,4 +55,20 @@ if (( $+commands[cf] )); then
 
 	source "$cf_completion"
 	unset cf_completion
+fi
+
+# must load after everything that defines widgets
+if [ -d $HOMEBREW_PREFIX/share/zsh-syntax-highlighting ]; then
+	source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# must load after zsh-syntax-highlighting
+if [ -d $HOMEBREW_PREFIX/share/zsh-history-substring-search ]; then
+	source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+	bindkey '^[[A' history-substring-search-up
+	bindkey '^[[B' history-substring-search-down
+	[[ -n $terminfo[kcuu1] ]] && bindkey "$terminfo[kcuu1]" history-substring-search-up
+	[[ -n $terminfo[kcud1] ]] && bindkey "$terminfo[kcud1]" history-substring-search-down
+	bindkey -M emacs '^P' history-substring-search-up
+	bindkey -M emacs '^N' history-substring-search-down
 fi
