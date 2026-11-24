@@ -3,12 +3,12 @@ aliases () {
 }
 
 dir() {
-  mkdir -p $1
-  cd $1
+	mkdir -p $1
+	cd $1
 }
 
 edit() {
-  code ${1:-.} # Default to .
+	code ${1:-.} # Default to .
 }
 
 # ─────────────────────────────────────────
@@ -37,7 +37,7 @@ latency() {
 		echo "Usage: latency <url> [number_of_requests]"
 		return 1
 	fi
-  
+
 	local url="$1"
 	local times=${2:-10}
 
@@ -88,11 +88,11 @@ latency() {
 # small enough for one screen.
 # ─────────────────────────────────────────
 tre() {
-  tree -aC -I '.git|target|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+	tree -aC -I '.git|target|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
 tree() {
-  command tree -I 'node_modules' -I 'target' "$@"
+	command tree -I 'node_modules' -I 'target' "$@"
 }
 
 # ─────────────────────────────────────────
@@ -101,8 +101,8 @@ tree() {
 # Source: trozler/whereAmI
 # https://github.com/trozler/whereAmI/blob/master/findmepls.sh
 # ─────────────────────────────────────────
-whereami() { 
-  RESP=$(curl -s "ipinfo.io")
+whereami() {
+	RESP=$(curl -s "ipinfo.io")
 	CITY=$(echo "$RESP" | jq -r '.city')
 	COUNTRY=$(echo "$RESP" | jq -r '.country')
 	IP=$(echo "$RESP" | jq -r '.ip')
