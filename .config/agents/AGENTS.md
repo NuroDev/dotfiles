@@ -46,6 +46,7 @@ This codebase will outlive you. Every shortcut becomes someone else's burden. Ev
 - **Arrow function parens**: always
 - **Bracket spacing**: `{ foo }`
 - **Indentation**: tabs, width 4
+- **Markdown prose**: one line per paragraph, never hard-wrapped. Break lines only where Markdown structure needs it (headings, list items, blank lines between blocks, code blocks, tables)
 - **Quotes**: single quotes
 - **Semicolons**: always
 - **Trailing commas**: always
