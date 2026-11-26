@@ -57,6 +57,10 @@ if (( $+commands[cf] )); then
 	unset cf_completion
 fi
 
+if (( $+commands[rex] )); then
+	source <(rex completion zsh)
+fi
+
 # must load after everything that defines widgets
 if [ -d $HOMEBREW_PREFIX/share/zsh-syntax-highlighting ]; then
 	source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
